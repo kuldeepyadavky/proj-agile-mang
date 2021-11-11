@@ -40,16 +40,75 @@
   <%= @task.task_type %>
 </p>
 
-<p>
-  <b>Projects:</b>
-  <%= @task.project %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @task.user %>
-</p>
-
-
 <%= link_to 'Edit', edit_project_task_path(@task.project, @task) %> |
 <%= link_to 'Back', project_tasks_path(@task.project) %>
+
+
+<hr/>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th>Task</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.body %></td>
+        <td><%= comment.task_id %></td>
+        <td><%= comment.user_id %></td>
+        <td><%= link_to 'Show', comment %></td>
+        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comment', new_comment_path %>
+
+
+
+<hr/>
+
+
+<%= form_for(@comment) do |form| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+        <% @comment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_field :body %>
+  </div>
+
+<div class="field">
+    <%= form.number_field :task_id, value: @task.id, type: :hidden %>
+  </div>
+   <div class="field">
+    <%= form.number_field :user_id, id: :task_user_id,  value: current_user.id, type: :hidden%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

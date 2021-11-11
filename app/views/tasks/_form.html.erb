@@ -45,7 +45,7 @@
   </div>
 
  <div class="field">
-    <%= f.number_field :project_id, value: @project.id %>
+    <%= f.number_field :project_id, value: @project.id,type: :hidden  %>
   </div>
    <div class="field">
     <%= f.number_field :user_id, id: :task_user_id,  value: current_user.id, type: :hidden %>
