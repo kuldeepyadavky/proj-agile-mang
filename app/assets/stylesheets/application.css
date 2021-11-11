@@ -69,3 +69,10 @@ input.btn.btn-outline-success.login_signup{
     max-width: 600px;
     margin: auto;
 }
+
+.field_with_errors {
+    padding: 2px;
+    display: table; 
+    color:red
+  } 
+  
