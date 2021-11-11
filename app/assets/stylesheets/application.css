@@ -14,3 +14,58 @@
  *= require_self
  *= require font-awesome
  */
+
+ .btn{
+     border-radius: 20px !important;
+      padding: 4px 40px !important; 
+      border: 1.3px solid !important
+ }
+
+.notice{
+    color: green;
+    display: flex;
+    justify-content: center;
+    border: 1.7px solid green;
+    padding: 10px;
+    width: 40%;
+    border-radius: 30px;
+    background-color: #ffffe8;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 50px;
+    text-align: center;
+}
+
+.alert{
+    color: red;
+    display: flex;
+    justify-content: center;
+    border: 1.7px solid red !important;
+    padding: 10px !important;
+    width: 40%;
+    top: 10px;
+    border-radius: 30px !important;
+    background-color: #ffffe8;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+input.btn.btn-outline-success.login_signup{
+   display: flex;
+   margin: auto;
+}
+
+.login-signup-form{
+    box-shadow: 1px 2px 4px red;
+    border-radius: 30px;
+    padding: 40px;
+    max-width: 600px;
+    margin: auto;
+}

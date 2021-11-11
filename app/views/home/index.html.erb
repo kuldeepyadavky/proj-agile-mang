@@ -1,13 +1,18 @@
 <div class='home'>
 <% if user_signed_in? %>
-    <h1>Welcome</h1>
-    <%= image_tag "timeline.png", :class=> 'hi' %>
-    <%= link_to "View Projects", projects_path	 %>
-    </div>
+<div class='logged_in'>
+    <h1>Hi, Hope you are having a good day!</h1>
+    <%= image_tag "say_hi.jpeg" %>
+<%= link_to "View Projects", projects_path, class: 'btn btn-outline-danger' %>
+    
+</div>
     <% else %>
     <div class='not_logged_in'>
-     <%= image_tag "say_hi.jpeg", :class=> 'hi' %>
-    <h1>Login Or Create an account to view your projects</h1>
+        <h1>Hi, Hope you are having a good day!</h1>
+     <%= image_tag "say_hi.jpeg" %>
+     <div class='buttons'>
+     <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-outline-danger' %>
+     <%= link_to "Login", new_user_session_path, class: 'btn btn-outline-success' %>
     </div>
     <% end %>
 </div>
