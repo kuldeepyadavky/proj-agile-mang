@@ -29,6 +29,10 @@
   <b>Story point:</b>
   <%= @task.story_point %>
 </p>
+<p>
+  <b> Priority:</b>
+  <%= @task.priority %>
+</p>
 
 <p>
   <b>Status:</b>
@@ -73,9 +77,9 @@
     <%= form.text_field :status %>
   </div>
 
-  <div class="field">
-    <%= form.label :task_id %>
-    <%= form.text_field :task_id %>
+
+<div class="field">
+    <%= form.number_field :task_id, value: @task.id, type: :hidden %>
   </div>
 
   <div class="actions">
