@@ -79,9 +79,12 @@
     <%= f.label :task_type %><br />
     <%= f.text_field :task_type %>
   </div>
-
+  <div class="field">
+  <%= f.label :attached_files %>
+  <%= f.file_field :attached_files, multiple: true %>
+  </div>
  <div class="field">
-    <%= f.number_field :project_id, value: @project.id %>
+    <%= f.number_field :project_id, value: @project.id, type: :hidden%>
   </div>
    <div class="field">
     <%= f.number_field :user_id, id: :task_user_id,  value: current_user.id, type: :hidden %>
@@ -105,8 +108,6 @@
     <th>Story point</th>
     <th>Status</th>
     <th>Task type</th>
-    <th>Projects</th>
-    <th>User</th>
     <th></th>
     <th></th>
     <th></th>
@@ -125,8 +126,6 @@
     <td><%= task.story_point %></td>
     <td><%= task.status %></td>
     <td><%= task.task_type %></td>
-    <td><%= task.project %></td>
-    <td><%= task.user %></td>
     <td><%= link_to 'Show', [task.project, task] %></td>
     <td><%= link_to 'Edit', edit_project_task_path(task.project, task) %></td>
     <td><%= link_to 'Destroy', [task.project, task], method: :delete, data: { confirm: 'Are you sure?' } %></td>

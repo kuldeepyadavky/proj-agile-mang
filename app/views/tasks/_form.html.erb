@@ -54,6 +54,10 @@
    <div class="field">
     <%= f.number_field :user_id, id: :task_user_id,  value: current_user.id, type: :hidden %>
   </div>
+  <div class="field">
+  <%= f.label :attached_files %>
+  <%= f.file_field :attached_files, multiple: true %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

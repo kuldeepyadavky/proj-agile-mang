@@ -43,7 +43,13 @@
   <b>Task type:</b>
   <%= @task.task_type %>
 </p>
+<div>
+<b>Attachments</b>
+<% @task.attached_files.each do |a| %>
+<p><a href=<%= rails_blob_path(a)%> target='blank'><%=a.filename%></a>
+<%end%>
 
+</div>
 <%= link_to 'Edit', edit_project_task_path(@task.project, @task) %> |
 <%= link_to 'Back', project_tasks_path(@task.project) %>
 
@@ -81,6 +87,7 @@
 <div class="field">
     <%= form.number_field :task_id, value: @task.id, type: :hidden %>
   </div>
+
 
   <div class="actions">
     <%= form.submit %>

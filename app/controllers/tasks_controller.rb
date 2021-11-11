@@ -38,7 +38,7 @@ class TasksController < ApplicationController
 
   # PUT projects/1/tasks/1
   def update
-    if @task.update_attributes(task_params)
+    if @task.update(task_params)
       redirect_to([@task.project, @task], notice: 'Task was successfully updated.')
     else
       render action: 'edit'
@@ -64,6 +64,6 @@ class TasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:title, :description, :due_date, :end_date, :start_date, :story_point, :status, :task_type,  :project_id, :priority, :user_id)
+      params.require(:task).permit(:title, :description, :due_date, :end_date, :start_date, :story_point, :status, :task_type,  :project_id, :priority, :user_id, attached_files:[])
     end
 end
