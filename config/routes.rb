@@ -1,4 +1,5 @@
   Rails.application.routes.draw do
+  resources :phases
   get 'home/index'
   resources :sub_tasks
   resources :comments

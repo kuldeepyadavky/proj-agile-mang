@@ -47,7 +47,10 @@
     <%= f.label :task_type %><br />
     <%= f.text_field :task_type %>
   </div>
-
+<div class="field">
+    <%= f.label :phase_id %><br />
+    <%= f.collection_select :phase_id, Phase.all, :id, :title %>
+  </div>
  <div class="field">
     <%= f.number_field :project_id, value: @project.id,type: :hidden  %>
   </div>
