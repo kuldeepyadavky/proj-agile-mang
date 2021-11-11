@@ -76,3 +76,21 @@ input.btn.btn-outline-success.login_signup{
     color:red
   } 
   
+  .count{
+      color: red;
+      padding: 3px 7px;
+      border-radius: 100%;
+      font-size: 13px;
+      border: 2px solid red;
+      margin-left:3px
+  }
+
+
+  a{
+      font-size: 14px;
+      text-decoration: none !important;
+  }
+
+  a :hover{
+      color: purple
+  }

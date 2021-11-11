@@ -5,6 +5,10 @@ class ProjectsController < ApplicationController
   # GET /projects or /projects.json
   def index
     @projects = current_user.projects
+    @projects_on_hold = @projects.where(status: 'On Hold')
+    @projects_in_progress = @projects.where(status: 'In Progress')
+    @projects_completed = @projects.where(status: 'Completed')
+
   end
 
   # GET /projects/1 or /projects/1.json

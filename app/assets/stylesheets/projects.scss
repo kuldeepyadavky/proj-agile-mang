@@ -1,3 +1,38 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.projects_index{
+    h1{
+        display: flex;
+        align-items: center;
+    }
+    .row{
+        .col{
+        background-color: #daf7e3;  
+        margin: 20px 10px;   
+        padding: 10px 20px;
+        border-radius: 20px;
+        min-height: 55vh;
+        box-shadow: 1px 1px 3px #b3b3b3;
+        h5{
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            justify-content: center;
+        }
+        .project_view{
+            background-color: white;
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin: 10px 0px;
+            border: 2px dashed #edb293;
+            p{
+                color: red;
+            }
+
+        }
+      }
+    }
+}

@@ -1,36 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class='projects_index'>
+<h1>PROJECTS <span class='count'><%= @projects.count %></span></h1>
 
-<h1>Projects</h1>
+<%= link_to 'ADD A NEW PROJECT', new_project_path%>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Due date</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.title %></td>
-        <td><%= project.description %></td>
-        <td><%= project.status %></td>
-        <td><%= project.due_date %></td>
-        <td><%= project.user_id %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Project', new_project_path %>
-
+<div class='row'>
+<div class= 'col'>
+<h5>On Hold <span class='count'><%= @projects_on_hold.length %></span></h5>
+<% @projects_on_hold.each do |p| %>
+<div class='project_view'>
+<p><%= p.title %></p>
+<%= link_to 'Detail View >', p%>
+</div>
+<% end %>
+</div>
+<div class= 'col'>
+<h5>In Progress <span class='count'><%= @projects_in_progress.length %></span></h5>
+<% @projects_in_progress.each do |p| %>
+<div class='project_view'>
+<p><%= p.title %></p>
+<%= link_to 'Detail View >', p%>
+</div>
+<% end %>
+</div>
+<div class= 'col'>
+<h5>Completed <span class='count'><%= @projects_completed.length %></span></h5>
+<% @projects_completed.each do |p| %>
+<div class='project_view'>
+<p><%= p.title %></p>
+<%= link_to 'Detail View >', p%>
+</div>
+<% end %>
+</div>
+</div>
+</div>
