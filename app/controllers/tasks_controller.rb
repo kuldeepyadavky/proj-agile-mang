@@ -11,7 +11,9 @@ class TasksController < ApplicationController
   # GET projects/1/tasks/1
   def show
     @comments = @task.comments
+    @sub_tasks = @task.sub_tasks
     @comment = Comment.new
+    @sub_task = SubTask.new
   end
 
   # GET projects/1/tasks/new
