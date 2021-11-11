@@ -80,7 +80,7 @@
 
   <div class="field">
     <%= form.label :status %>
-    <%= form.text_field :status %>
+    <%= form.select :status, options_for_select(["Incomplete", "On Hold","Completed"]) %>
   </div>
 
 
@@ -153,12 +153,8 @@
 
 <br>
 
-<%= link_to 'New Comment', new_comment_path %>
-
-
 
 <hr/>
-
 
 <%= form_for(@comment) do |form| %>
   <% if @comment.errors.any? %>

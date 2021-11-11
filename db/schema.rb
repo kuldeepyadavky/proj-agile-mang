@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_11_050755) do
+ActiveRecord::Schema.define(version: 2021_11_11_084540) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_11_11_050755) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string "body"
+    t.text "body", limit: 1000
     t.integer "task_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 2021_11_11_050755) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
+    t.string "title", limit: 255
+    t.text "description", limit: 500
     t.string "status"
     t.date "due_date"
     t.integer "user_id", null: false
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2021_11_11_050755) do
     t.date "start_date"
     t.decimal "story_point"
     t.string "status"
-    t.string "task_type"
+    t.string "task_type", default: "Task"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -96,6 +96,8 @@ ActiveRecord::Schema.define(version: 2021_11_11_050755) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_admin", default: false
+    t.boolean "is_active", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,0 +1,13 @@
+<div class='home'>
+<% if user_signed_in? %>
+    <h1>Welcome</h1>
+    <%= image_tag "timeline.png", :class=> 'hi' %>
+    <%= link_to "View Projects", projects_path	 %>
+    </div>
+    <% else %>
+    <div class='not_logged_in'>
+     <%= image_tag "say_hi.jpeg", :class=> 'hi' %>
+    <h1>Login Or Create an account to view your projects</h1>
+    </div>
+    <% end %>
+</div>

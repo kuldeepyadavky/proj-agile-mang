@@ -32,16 +32,16 @@
     <%= f.date_select :start_date %>
   </div>
   <div class="field">
-    <%= f.label :story_point %><br />
-    <%= f.text_field :story_point %>
+      <%= f.label :story_point %><br />
+    <%= f.number_field :story_point, step: 0.000000000000000001 %>
   </div>
   <div class="field">
     <%= f.label :status %><br />
-    <%= f.text_field :status %>
+    <%= f.select :status, options_for_select(["Incomplete", "On Hold","Completed"]) %>
   </div>
    <div class="field">
     <%= f.label :priority %><br />
-    <%= f.text_field :priority %>
+    <%= f.select :priority , options_for_select(["Low", "Medium", "High", "Urgent"])%>
   </div>
   <div class="field">
     <%= f.label :task_type %><br />
