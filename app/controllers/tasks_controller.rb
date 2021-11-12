@@ -6,7 +6,6 @@ class TasksController < ApplicationController
   # GET projects/1/tasks
   def index
     @tasks = @project.tasks
-    
   end
 
   # GET projects/1/tasks/1

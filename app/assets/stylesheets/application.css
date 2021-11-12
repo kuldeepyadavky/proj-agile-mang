@@ -57,7 +57,7 @@
     text-align: center;
 }
 
-input.btn.btn-outline-success.login_signup{
+input.btn.btn-outline-success.centr_button{
    display: flex;
    margin: 10px auto;
 }

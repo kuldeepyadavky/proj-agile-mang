@@ -1,15 +1,6 @@
 class SubTasksController < ApplicationController
   before_action :set_sub_task, only: %i[ show edit update destroy ]
 
-  # GET /sub_tasks or /sub_tasks.json
-  def index
-    @sub_tasks = SubTask.all
-  end
-
-  # GET /sub_tasks/1 or /sub_tasks/1.json
-  def show
-  end
-
   # GET /sub_tasks/new
   def new
     @sub_task = SubTask.new

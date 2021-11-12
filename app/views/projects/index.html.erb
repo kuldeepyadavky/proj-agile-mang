@@ -1,7 +1,7 @@
 <div class='projects_index'>
 <h1>PROJECTS <span class='count'><%= @projects.count %></span></h1>
 
-<%= link_to 'ADD A NEW PROJECT', new_project_path%>
+<%= link_to 'Add Project', new_project_path, class:'btn btn-outline-danger' %>
 
 <%if @projects.count !=0 %>
 <div class='row'>
