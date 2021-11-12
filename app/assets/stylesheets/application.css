@@ -130,7 +130,7 @@ input.btn.btn-outline-success.login_signup{
      font-size: 14px;
   }
 
-  .card_container .col-xl-2{
+  .card_container .col-xl-2, .card_container .col-xl-3{
     background-color: white;
     border-radius: 10px;
     padding: 12px 20px;
@@ -138,11 +138,17 @@ input.btn.btn-outline-success.login_signup{
     border: 2px dashed #edb293;
     margin: 10px;
   }
-  .card_container .col-xl-2 p{
+  .card_container .col-xl-2 p, .card_container .col-xl-3 p{
     color: red;
   }
 
   .badge{
       margin: 5px 0 !important;
       font-style: normal !important;
+    }
+
+    .comment-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
