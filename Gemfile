@@ -65,10 +65,4 @@ gem 'devise'
 # gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 gem 'rexml'
-gem 'spring-commands-rspec'
-gem 'parallel_tests'
 gem 'factory_bot_rails'
-gem 'pry'
-gem 'database_cleaner'
-
-gem 'ffaker'
