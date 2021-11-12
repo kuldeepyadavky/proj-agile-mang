@@ -22,10 +22,10 @@ class SubTasksController < ApplicationController
   # POST /sub_tasks or /sub_tasks.json
   def create
     @sub_task = SubTask.new(sub_task_params)
-
     respond_to do |format|
       if @sub_task.save
-        format.html { redirect_to @sub_task, notice: "Sub task was successfully created." }
+        puts "sub_task #{@sub_task.task_id}"
+        format.html { redirect_to project_task_path(@sub_task.task.project_id, @sub_task.task.id), notice: "Sub task was successfully created." }
         format.json { render :show, status: :created, location: @sub_task }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class SubTasksController < ApplicationController
   def update
     respond_to do |format|
       if @sub_task.update(sub_task_params)
-        format.html { redirect_to @sub_task, notice: "Sub task was successfully updated." }
+        format.html { redirect_to project_task_path(@sub_task.task.project_id, @sub_task.task.id), notice: "Sub task was successfully updated." }
         format.json { render :show, status: :ok, location: @sub_task }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,7 +51,7 @@ class SubTasksController < ApplicationController
   def destroy
     @sub_task.destroy
     respond_to do |format|
-      format.html { redirect_to sub_tasks_url, notice: "Sub task was successfully destroyed." }
+      format.html { redirect_to project_task_path(@sub_task.task.project_id, @sub_task.task.id), notice: "Sub task was successfully destroyed." }
       format.json { head :no_content }
     end
   end
