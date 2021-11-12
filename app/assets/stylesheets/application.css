@@ -59,15 +59,15 @@
 
 input.btn.btn-outline-success.login_signup{
    display: flex;
-   margin: auto;
+   margin: 10px auto;
 }
 
-.login-signup-form{
+.custom-form{
     box-shadow: 1px 2px 4px red;
     border-radius: 30px;
     padding: 40px;
     max-width: 600px;
-    margin: auto;
+    margin: 20px auto;
 }
 
 .field_with_errors {
@@ -94,3 +94,55 @@ input.btn.btn-outline-success.login_signup{
   a :hover{
       color: purple
   }
+
+
+
+
+  .card{
+      border-radius: 0.7rem !important;
+  }
+
+  .card-title{
+      font-size: 20px;
+      color: green;
+      text-transform: uppercase;
+  }
+
+  .nothing-here{
+    text-align: center;
+    color: red;
+    font-style: italic;
+  }
+
+  .card_container{
+    background: #daf7e3;
+    padding: 10px 20px;
+    box-shadow: 1px 1px 3px #b3b3b3;
+    border-radius: 20px;
+    display: flex;
+    /* justify-content: */
+    flex-wrap: wrap;
+    margin:auto
+  }
+
+  .card-text{
+     font-style: italic;
+     font-size: 14px;
+  }
+
+  .card_container .col-xl-2{
+    background-color: white;
+    border-radius: 10px;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: 2px dashed #edb293;
+    margin: 10px;
+  }
+  .card_container .col-xl-2 p{
+    color: red;
+  }
+
+  .badge{
+      margin: 5px 0 !important;
+      font-style: normal !important;
+    }

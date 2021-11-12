@@ -1,35 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div class='project_show'>
+<div class='card'>
 
-<p>
-  <strong>Title:</strong>
+
+<div class='card-body'>
+<div class='card-title'>
   <%= @project.title %>
-</p>
-
+</div>
+<div class='card-text'>
 <p>
   <strong>Description:</strong>
   <%= @project.description %>
 </p>
 
-<p>
-  <strong>Status:</strong>
+<span class="badge alert-info">
   <%= @project.status %>
-</p>
+</span>
 
 <p>
   <strong>Due date:</strong>
   <%= @project.due_date %>
 </p>
+</div>
+</div>
+<div class='card-footer'>
 
-<p>
-  <strong>User:</strong>
-  <%= @project.user_id %>
-</p>
+<%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-primary' %> 
+<%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
+</div>
+</div>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
 
 <hr/>
 
+
+<h3>Tasks</h3>
+<% if @project.tasks.count != 0 %>
+<div class='card_container container'>
+<% @project.tasks.each do |task| %>
+<% if task.persisted? %>
+  <div class='col-xl-2 col-md-4'>
+    <p><%= task.title %></p>
+    <p><%= link_to 'View >', [task.project, task] %></p>
+  </div>
+<% end%>
+<% end %>
+</div>
+<% else %>
+<p class='nothing-here'>No Tasks Yet!</p>
+<% end %>
+
+
+<hr/>
+
+<div class='custom-form'>
 <%= form_for([@task.project, @task])  do |f| %>
   <% if @task.errors.any? %>
     <div id="error_explanation">
@@ -43,98 +66,60 @@
     </div>
   <% end %>
 
+<h3>Add Task</h3>
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label :title , class:'form-label' %><br />
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label :description ,class:'form-label' %><br />
+    <%= f.text_area :description , class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :due_date %><br />
-    <%= f.date_select :due_date %>
+    <%= f.label :due_date ,class:'form-label' %><br />
+    <%= f.date_select :due_date , class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :end_date %><br />
-    <%= f.date_select :end_date %>
+    <%= f.label :end_date, class:'form-label'  %><br />
+    <%= f.date_select :end_date , class: 'form-control'%>
   </div>
   <div class="field">
-    <%= f.label :start_date %><br />
-    <%= f.date_select :start_date %>
+    <%= f.label :start_date, class:'form-label' %><br />
+    <%= f.date_select :start_date, class:'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :story_point %><br />
-    <%= f.number_field :story_point, step: 0.000000000000000001 %>
+    <%= f.label :story_point, class:'form-label' %><br />
+    <%= f.number_field :story_point, step: 0.000000000000000001 , class: 'form-control'%>
   </div>
     <div class="field">
-    <%= f.label :priority %><br />
-    <%= f.select :priority , options_for_select(["Low", "Medium", "High", "Urgent"])%>
+    <%= f.label :priority, class:'form-label' %><br />
+    <%= f.select :priority , options_for_select(["Low", "Medium", "High", "Urgent"]) , class: 'form-control'%>
   </div>
   <div class="field">
-    <%= f.label :status %><br />
-    <%= f.select :status, options_for_select(["In Progress", "On Hold","Completed"]) %>
+    <%= f.label :status, class:'form-label' %><br />
+    <%= f.select :status, options_for_select(["In Progress", "On Hold","Completed"]) , class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :phase_id %><br />
-    <%= f.collection_select :phase_id, Phase.all, :id, :title %>
+    <%= f.label :phase_id, class:'form-label' %><br />
+    <%= f.collection_select :phase_id, Phase.all, :id, :title , class: 'form-control'%>
   </div>
   <div class="field">
-    <%= f.label :task_type %><br />
-    <%= f.text_field :task_type %>
+    <%= f.label :task_type, class:'form-label' %><br />
+    <%= f.text_field :task_type , class: 'form-control'%>
   </div>
   <div class="field">
-  <%= f.label :attached_files %>
-  <%= f.file_field :attached_files, multiple: true %>
+  <%= f.label :attached_files, class:'form-label' %>
+  <%= f.file_field :attached_files, multiple: true, class: 'form-control' %>
   </div>
  <div class="field">
-    <%= f.number_field :project_id, value: @project.id, type: :hidden%>
+    <%= f.number_field :project_id,id:  :task_project_id, value: @project.id, type: :hidden%>
   </div>
    <div class="field">
     <%= f.number_field :user_id, id: :task_user_id,  value: current_user.id, type: :hidden %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Add Task", class: 'btn btn-outline-success login_signup'%>
   </div>
 <% end %>
-
-<hr />
-
-<h1>Listing tasks</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Due date</th>
-    <th>End date</th>
-    <th>Start date</th>
-    <th>Story point</th>
-    <th>Status</th>
-    <th>Task type</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-
-
-<% @project.tasks.each do |task| %>
-<% if task.persisted? %>
-  <tr>
-    <td><%= task.title %></td>
-    <td><%= task.description %></td>
-    <td><%= task.due_date %></td>
-    <td><%= task.end_date %></td>
-    <td><%= task.start_date %></td>
-    <td><%= task.story_point %></td>
-    <td><%= task.status %></td>
-    <td><%= task.task_type %></td>
-    <td><%= link_to 'Show', [task.project, task] %></td>
-    <td><%= link_to 'Edit', edit_project_task_path(task.project, task) %></td>
-    <td><%= link_to 'Destroy', [task.project, task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end%>
-<% end %>
-</table>
-
+</div>
+</div>

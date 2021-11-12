@@ -3,14 +3,14 @@
 
 <%= link_to 'ADD A NEW PROJECT', new_project_path%>
 
-
+<%if @projects.count !=0 %>
 <div class='row'>
 <div class= 'col'>
 <h5>On Hold <span class='count'><%= @projects_on_hold.length %></span></h5>
 <% @projects_on_hold.each do |p| %>
 <div class='project_view'>
 <p><%= p.title %></p>
-<%= link_to 'Detail View >', p%>
+<%= link_to 'View >', p%>
 </div>
 <% end %>
 </div>
@@ -19,7 +19,7 @@
 <% @projects_in_progress.each do |p| %>
 <div class='project_view'>
 <p><%= p.title %></p>
-<%= link_to 'Detail View >', p%>
+<%= link_to 'View >', p%>
 </div>
 <% end %>
 </div>
@@ -28,9 +28,12 @@
 <% @projects_completed.each do |p| %>
 <div class='project_view'>
 <p><%= p.title %></p>
-<%= link_to 'Detail View >', p%>
+<%= link_to 'View >', p%>
 </div>
 <% end %>
 </div>
 </div>
+<% else %>
+<p class='nothing-here'>No Projects Yet!<p>
+<% end %>
 </div>
