@@ -152,3 +152,8 @@ input.btn.btn-outline-success.login_signup{
         align-items: center;
         justify-content: space-between;
     }
+
+
+    .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+        background-color: green !important;
+    }

@@ -1,3 +1,4 @@
+<div class='custom-form'>
 <%= form_with(model: project) do |form| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
@@ -12,26 +13,27 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.label :title, class:'form-label' %>
+    <%= form.text_field :title, class:'form-control'%>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.label :description, class:'form-label'%>
+    <%= form.text_area :description, class:'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :status %>
+    <%= form.label :status,  class:'form-label' %>
     <%= form.select :status, options_for_select(["In Progress", "On Hold","Completed"]) %>
   </div>
 
   <div class="field">
-    <%= form.label :due_date %>
-    <%= form.date_select :due_date %>
+    <%= form.label :due_date,  class:'form-label'%>
+    <%= form.date_select :due_date, class:'form-control'%>
   </div>
   
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions", >
+    <%= form.submit "Submit", class: 'btn btn-outline-success login_signup'%>
   </div>
 <% end %>
+</div>

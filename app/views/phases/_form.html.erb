@@ -1,3 +1,4 @@
+<div class='custom-form'>
 <%= form_with(model: phase) do |form| %>
   <% if phase.errors.any? %>
     <div id="error_explanation">
@@ -12,11 +13,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.label :title , class: 'form-label'%>
+    <%= form.text_field :title, class: 'form-controller' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Submit", class: 'btn btn-outline-success login_signup'%>
   </div>
 <% end %>
+</div>

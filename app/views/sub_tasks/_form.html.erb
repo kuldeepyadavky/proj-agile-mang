@@ -1,10 +1,12 @@
-<%= form_with(model: sub_task) do |form| %>
-  <% if sub_task.errors.any? %>
+
+  <div class='custom-form'>
+<%= form_for(@sub_task) do |form| %>
+  <% if @sub_task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(sub_task.errors.count, "error") %> prohibited this sub_task from being saved:</h2>
 
       <ul>
-        <% sub_task.errors.each do |error| %>
+        <% @sub_task.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -12,21 +14,24 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.label :title , class:'form-label'%>
+    <%= form.text_field :title , class:'form-control'%>
   </div>
 
   <div class="field">
-    <%= form.label :status %>
-    <%= form.select :status, options_for_select(["In Progress", "On Hold","Completed"]) %>
+    <%= form.label :status , class:'form-label'%>
+    <%= form.select :status, options_for_select(["In Progress", "On Hold","Completed"]) , class:'form-control'%>
   </div>
 
-  <div class="field">
-    <%= form.label :task_id %>
-    <%= form.text_field :task_id %>
+
+<div class="field">
+    <%= form.number_field :task_id, type: :hidden %>
   </div>
+
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Submit", class: 'btn btn-outline-success login_signup'%>
   </div>
 <% end %>
+
+</div>
