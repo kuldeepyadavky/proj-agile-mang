@@ -24,7 +24,7 @@ RSpec.describe 'Sign Up' do
         expect(page).to have_content("Email")
         fill_in_signup_fields
         expect(page).to have_content("View Projects")  #on successfull sign user will be able to see the link to view projects
-        visit('/projects') #now will try to 
+        visit('/projects') #now will try to go to project page
         expect(page).to have_content("No Projects Yet")
         click_link('Add Project')
         expect(current_path).to eql('/projects/new') #now user is at create project path
